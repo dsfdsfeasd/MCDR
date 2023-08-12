@@ -5,7 +5,7 @@ PLUGIN_METADATA = {
     'id': 'TNT',
     'version': '1.0.0',
     'name': 'Mifeng',
-    'description': '骗赞服同款!!TNT',
+    'description': '骗赞服同款!!TNT，触发后生成爆炸粒子',
     'author': 'Bing',
     'link': '',
 }
@@ -37,7 +37,7 @@ def on_info(server, info):
     elif info.content == '!!TNT':
         if random() < 0.6:
             server.execute(f'kill <player>')
-            server.execute(f'execute at {info.player} run summon minecraft:firework_rocket ~ ~ ~')
+            server.execute(f'execute at {info.player} run particle explosion ~ ~ ~ 1 1 1 1 10 force')
         else:
             server.execute(f'kill {info.player}')
             player_info = server.get_player_info(info.player)
